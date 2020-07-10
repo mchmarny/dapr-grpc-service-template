@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dapr-grpc-event-subscriber-template
+  labels:
+    app: dapr-grpc-event-subscriber-template
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dapr-grpc-event-subscriber-template
+  template:
+    metadata:
+      labels:
+        app: dapr-grpc-event-subscriber-template
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/id: "dapr-grpc-event-subscriber-template"
+        dapr.io/port: "50001"
+        dapr.io/protocol: "grpc"
+        dapr.io/config: "tracing"
+        dapr.io/log-level: "debug"
+    spec:
+      containers:
+      - name: user-container
+        image: mchmarny/dapr-grpc-event-subscriber-template:v0.1.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 50001
+        env:
+        - name: PORT
+          value: "50001"
+        - name: DAPR_HTTP_PORT
+          value: "3500"
+        - name: TOPIC_NAME
+          value: "events"
+        - name: STORE_NAME
+          value: "store"
