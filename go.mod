@@ -2,7 +2,7 @@ module github.com/mchmarny/dapr-grpc-service-template
 
 go 1.14
 
-replace github.com/dapr/go-sdk => github.com/mchmarny/go-sdk v0.8.1
+replace github.com/dapr/go-sdk => github.com/mchmarny/go-sdk v0.8.2
 
 require (
 	github.com/dapr/go-sdk v0.8.0

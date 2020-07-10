@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"os"
 	"strings"
@@ -29,7 +30,7 @@ func main() {
 	}
 }
 
-func echoHandler(contentTypeIn string, dataIn []byte) (contentTypeOut string, dataOut []byte) {
+func echoHandler(ctx context.Context, contentTypeIn string, dataIn []byte) (contentTypeOut string, dataOut []byte) {
 	logger.Printf("received invocation (content type:%s sie:%d)", contentTypeIn, len(dataIn))
 
 	// TODO: implement handling logic here
