@@ -39,7 +39,7 @@ jobs:
       env:
         VERSION: ${{ env.RELEASE_VERSION }}
       with:
-        name: ${{ secrets.DOCKER_USERNAME }}/dapr-grpc-event-subscriber-template
+        name: ${{ secrets.DOCKER_USERNAME }}/dapr-grpc-service-template
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         buildargs: VERSION
