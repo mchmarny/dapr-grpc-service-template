@@ -1,4 +1,4 @@
-RELEASE_VERSION  =v0.1.2
+RELEASE_VERSION  =v0.1.3
 SERVICE_NAME    ?=$(notdir $(shell pwd))
 DOCKER_USERNAME ?=$(DOCKER_USER)
 

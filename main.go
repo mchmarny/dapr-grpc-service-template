@@ -31,7 +31,7 @@ func main() {
 }
 
 func echoHandler(ctx context.Context, contentTypeIn string, dataIn []byte) (contentTypeOut string, dataOut []byte) {
-	logger.Printf("received invocation (content type:%s sie:%d)", contentTypeIn, len(dataIn))
+	logger.Printf("received invocation (content type:%s content:'%s')", contentTypeIn, string(dataIn))
 
 	// TODO: implement handling logic here
 
