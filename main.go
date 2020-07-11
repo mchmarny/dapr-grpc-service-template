@@ -6,37 +6,39 @@ import (
 	"os"
 	"strings"
 
-	daprd "github.com/dapr/go-sdk/server/grpc"
+	daprd "github.com/dapr/go-sdk/service/grpc"
 )
 
 var (
-	logger      = log.New(os.Stdout, "", 0)
-	servicePort = getEnvVar("PORT", "50001")
+	logger         = log.New(os.Stdout, "", 0)
+	serviceAddress = getEnvVar("ADDRESS", ":50001")
 )
 
 func main() {
 	// create serving server
-	server, err := daprd.NewServer(servicePort)
+	s, err := daprd.NewService(serviceAddress)
 	if err != nil {
 		log.Fatalf("failed to start the server: %v", err)
 	}
 
-	// add handler to it a handler
-	server.AddInvocationHandler("echo", echoHandler)
+	// add handler to the service
+	s.AddInvocationHandler("echo", echoHandler)
 
 	// start the server to handle incoming events
-	if err := server.Start(); err != nil {
+	if err := s.Start(); err != nil {
 		log.Fatalf("server error: %v", err)
 	}
 }
 
-func echoHandler(ctx context.Context, contentTypeIn string, dataIn []byte) (contentTypeOut string, dataOut []byte) {
-	logger.Printf("received invocation (content type:%s content:'%s')", contentTypeIn, string(dataIn))
+func echoHandler(ctx context.Context, in *daprd.InvocationEvent) (out *daprd.InvocationEvent, err error) {
+	logger.Printf("received invocation (content type:%s content:'%s')", in.ContentType, string(in.Data))
 
 	// TODO: implement handling logic here
 
-	contentTypeOut = contentTypeIn
-	dataOut = dataIn
+	out = &daprd.InvocationEvent{
+		ContentType: in.ContentType,
+		Data:        in.Data,
+	}
 
 	return
 }
