@@ -23,7 +23,7 @@ run: build ## Builds binary and runs it in Dapr
          bin/$(SERVICE_NAME) 
 
 call: ## Invokes service through Dapr API 
-	curl -v -d '{ "message": "hello" }' \
+	curl -d '{ "message": "ping" }' \
      -H "Content-type: application/json" \
      "http://localhost:3500/v1.0/invoke/$(SERVICE_NAME)/method/echo"
 
