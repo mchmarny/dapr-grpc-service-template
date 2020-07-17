@@ -2,7 +2,7 @@
 
 [![Test](https://github.com/mchmarny/dapr-grpc-service-template/workflows/Test/badge.svg)](https://github.com/mchmarny/dapr-grpc-service-template/actions?query=workflow%3ATest) ![Release](https://github.com/mchmarny/dapr-grpc-service-template/workflows/Release/badge.svg?query=workflow%3ARelease) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/mchmarny/dapr-grpc-service-template) [![Go Report Card](https://goreportcard.com/badge/github.com/mchmarny/dapr-grpc-service-template)](https://goreportcard.com/report/github.com/mchmarny/dapr-grpc-service-template)
 
-Template to bootstrap a new Dapr cron (schedule) handling services development in `go`. 
+Template to bootstrap a new Dapr service handler development in `go`. 
 
 ```shell
 $ make help
