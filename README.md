@@ -1,6 +1,8 @@
 # dapr-grpc-service-template
 
-This Dapr template project accelerates your Dapr gRPC services development in `go`.
+[![Test](https://github.com/mchmarny/dapr-grpc-service-template/workflows/Test/badge.svg)](https://github.com/mchmarny/dapr-grpc-service-template/actions?query=workflow%3ATest) ![Release](https://github.com/mchmarny/dapr-grpc-service-template/workflows/Release/badge.svg?query=workflow%3ARelease) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/mchmarny/dapr-grpc-service-template) [![Go Report Card](https://goreportcard.com/badge/github.com/mchmarny/dapr-grpc-service-template)](https://goreportcard.com/report/github.com/mchmarny/dapr-grpc-service-template)
+
+Template to bootstrap a new Dapr cron (schedule) handling services development in `go`. 
 
 ```shell
 $ make help
@@ -17,9 +19,12 @@ reset                          Resets go modules
 help                           Display available commands
 ```
 
-This project also includes GitHub actions in [.github/workflows](.github/workflows) that test on each `push` and build images and mark release on each `tag`. 
-
-[![Test](https://github.com/mchmarny/dapr-grpc-service-template/workflows/Test/badge.svg)](https://github.com/mchmarny/dapr-grpc-service-template/actions?query=workflow%3ATest) ![Release](https://github.com/mchmarny/dapr-grpc-service-template/workflows/Release/badge.svg?query=workflow%3ARelease) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/mchmarny/dapr-grpc-service-template) [![Go Report Card](https://goreportcard.com/badge/github.com/mchmarny/dapr-grpc-service-template)](https://goreportcard.com/report/github.com/mchmarny/dapr-grpc-service-template)
+This project also includes GitHub actions in [.github/workflows](.github/workflows) that test on each `push` and build images and mark release on each `tag`. Other Dapr GitHub templates that may help you accelerate your development:
+	
+* [dapr-grpc-event-subscriber-template](https://github.com/mchmarny/dapr-grpc-event-subscriber-template)
+* [dapr-http-event-subscriber-template](https://github.com/mchmarny/dapr-event-subscriber-template)
+* [dapr-ui-app-template](https://github.com/mchmarny/dapr-ui-app-template)
+* [dapr-http-cron-handler-template](https://github.com/mchmarny/dapr-http-cron-handler-template)
 
 ## usage 
 
