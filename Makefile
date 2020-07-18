@@ -1,8 +1,12 @@
 RELEASE_VERSION  =v0.1.3
 SERVICE_NAME    ?=$(notdir $(shell pwd))
 DOCKER_USERNAME ?=$(DOCKER_USER)
+REMOTE_REPO_URL :=$(shell git config remote.origin.url)
+PACKAGE_NAME    :=$(subst git@,,$(REMOTE_REPO_URL))
+PACKAGE_NAME    :=$(subst .git,,$(PACKAGE_NAME))
+PACKAGE_NAME    :=$(subst :,/,$(PACKAGE_NAME))
 
-.PHONY: mod test run build dapr event image show imagerun lint clean, tag
+.PHONY: mod test run build dapr event image show imagerun lint clean, tag, init
 all: test
 
 tidy: ## Updates the go modules and vendors all dependencies 
@@ -43,9 +47,11 @@ clean: ## Cleans up generated files
 	rm -fr ./bin
 	rm -fr ./vendor
 
-reset: clean ## Resets go modules 
-	rm go.*
-	go mod init
+init: clean ## Resets go modules 
+	rm -f go.*
+	go mod init $(PACKAGE_NAME)
+	go mod tidy 
+	go mod vendor 
 
 help: ## Display available commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk \
