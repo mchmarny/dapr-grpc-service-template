@@ -1,4 +1,4 @@
-RELEASE_VERSION  =v0.1.5
+RELEASE_VERSION  =v0.1.6
 SERVICE_NAME    ?=$(notdir $(shell pwd))
 DOCKER_USERNAME ?=$(DOCKER_USER)
 REMOTE_REPO_URL :=$(shell git config remote.origin.url)

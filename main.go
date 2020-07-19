@@ -30,14 +30,14 @@ func main() {
 	}
 }
 
-func echoHandler(ctx context.Context, in *daprd.InvocationEvent) (out *daprd.InvocationEvent, err error) {
+func echoHandler(ctx context.Context, in *daprd.InvocationEvent) (out *daprd.Content, err error) {
 	logger.Printf(
 		"Invocation (ContentType:%s, Verb:%s, QueryString:%s, Data:%s)",
 		in.ContentType, in.Verb, in.QueryString, string(in.Data),
 	)
 
 	// TODO: implement handling logic here
-	out = &daprd.InvocationEvent{
+	out = &daprd.Content{
 		ContentType: in.ContentType,
 		Data:        in.Data,
 	}
