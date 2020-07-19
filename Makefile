@@ -1,4 +1,4 @@
-RELEASE_VERSION  =v0.1.3
+RELEASE_VERSION  =v0.1.5
 SERVICE_NAME    ?=$(notdir $(shell pwd))
 DOCKER_USERNAME ?=$(DOCKER_USER)
 REMOTE_REPO_URL :=$(shell git config remote.origin.url)
@@ -15,6 +15,13 @@ tidy: ## Updates the go modules and vendors all dependencies
 
 test: mod ## Tests the entire project 
 	go test -count=1 -race ./...
+
+debug: tidy ## Runs uncompiled code in Dapr
+	dapr run --app-id $(SERVICE_NAME) \
+		 --app-port 50001 \
+		 --protocol grpc \
+		 --port 3500 \
+         go run main.go
 
 build: mod ## Builds local release binary
 	CGO_ENABLED=0 go build -a -tags netgo -mod vendor -o bin/$(SERVICE_NAME) .

@@ -22,7 +22,7 @@ func main() {
 	}
 
 	// add handler to the service
-	s.AddInvocationHandler("echo", echoHandler)
+	s.AddServiceInvocationHandler("echo", echoHandler)
 
 	// start the server to handle incoming events
 	if err := s.Start(); err != nil {
@@ -31,10 +31,12 @@ func main() {
 }
 
 func echoHandler(ctx context.Context, in *daprd.InvocationEvent) (out *daprd.InvocationEvent, err error) {
-	logger.Printf("received invocation (content type:%s content:'%s')", in.ContentType, string(in.Data))
+	logger.Printf(
+		"Invocation (ContentType:%s, Verb:%s, QueryString:%s, Data:%s)",
+		in.ContentType, in.Verb, in.QueryString, string(in.Data),
+	)
 
 	// TODO: implement handling logic here
-
 	out = &daprd.InvocationEvent{
 		ContentType: in.ContentType,
 		Data:        in.Data,
