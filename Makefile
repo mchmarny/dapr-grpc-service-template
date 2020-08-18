@@ -18,9 +18,10 @@ test: mod ## Tests the entire project
 
 debug: tidy ## Runs uncompiled code in Dapr
 	dapr run --app-id $(SERVICE_NAME) \
-		 --app-port 50001 \
-		 --protocol grpc \
-		 --port 3500 \
+		     --app-port 50001 \
+		     --app-protocol grpc \
+		     --dapr-http-port 3500 \
+             --components-path ./config \
          go run main.go
 
 build: mod ## Builds local release binary
@@ -28,9 +29,10 @@ build: mod ## Builds local release binary
 
 run: build ## Builds binary and runs it in Dapr
 	dapr run --app-id $(SERVICE_NAME) \
-		 --app-port 50001 \
-		 --protocol grpc \
-		 --port 3500 \
+			 --app-port 50001 \
+		     --app-protocol grpc \
+		     --dapr-http-port 3500 \
+             --components-path ./config \
          bin/$(SERVICE_NAME) 
 
 call: ## Invokes service through Dapr API 
