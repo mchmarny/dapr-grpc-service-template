@@ -2,7 +2,17 @@
 
 [![Test](https://github.com/mchmarny/dapr-grpc-service-template/workflows/Test/badge.svg)](https://github.com/mchmarny/dapr-grpc-service-template/actions?query=workflow%3ATest) ![Release](https://github.com/mchmarny/dapr-grpc-service-template/workflows/Release/badge.svg?query=workflow%3ARelease) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/mchmarny/dapr-grpc-service-template) [![Go Report Card](https://goreportcard.com/badge/github.com/mchmarny/dapr-grpc-service-template)](https://goreportcard.com/report/github.com/mchmarny/dapr-grpc-service-template)
 
-Template to bootstrap a new Dapr service handler development in `go`. 
+## template usage 
+
+* Click "Use this template" above and follow the wizard to select owner and name your new repo
+* Clone and navigate to your new repo (`git clone git@github.com:<USERNAME>/<REPO-NAME>.git && cd <REPO-NAME>`)
+* Initialize your project to set the package names and update imports (`make init`)
+* Write your subscription event handling logic 
+
+
+### common operations
+
+Common operations to help you bootstrap a Dapr gRPC services development in `go`:
 
 ```shell
 $ make help
@@ -19,29 +29,7 @@ reset                          Resets go modules
 help                           Display available commands
 ```
 
-This project also includes GitHub actions in [.github/workflows](.github/workflows) that test on each `push` and build images and mark release on each `tag`. Other Dapr GitHub templates that may help you accelerate your development:
-	
-* [dapr-grpc-event-subscriber-template](https://github.com/mchmarny/dapr-grpc-event-subscriber-template)
-* [dapr-http-event-subscriber-template](https://github.com/mchmarny/dapr-event-subscriber-template)
-* [dapr-ui-app-template](https://github.com/mchmarny/dapr-ui-app-template)
-* [dapr-http-cron-handler-template](https://github.com/mchmarny/dapr-http-cron-handler-template)
-
-## template usage 
-
-* Click "Use this template" above and follow the wizard to select owner and name your new repo
-* Clone your new repo locally (e.g. `git clone git@github.com:<USERNAME>/<REPO-NAME>.git`)
-* Navigate to your newly cloned repo (`cd <REPO-NAME>`)
-* Cleanup old artifacts (`make init`)
-
-### deployment files
-
-> If deploying to Kubernates you will also need to update the components and deployment files in the [deploy](deploy) directory and define your DockerHub username (`DOCKER_USER`)
-
-To build and publish image:
-
-```shell
-make image
-```
+This project also includes GitHub actions in [.github/workflows](.github/workflows) that test on each `push` and build images and mark release on each `tag`. Other Dapr GitHub templates to accelerate Dapr development available [here](https://github.com/dapr/go-sdk/tree/master/service).
 
 ## Disclaimer
 
