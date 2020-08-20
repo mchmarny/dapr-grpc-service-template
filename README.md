@@ -31,10 +31,6 @@ help                           Display available commands
 
 This project also includes GitHub actions in [.github/workflows](.github/workflows) that test on each `push` and build images and mark release on each `tag`. Other Dapr GitHub templates to accelerate Dapr development available [here](https://github.com/dapr/go-sdk/tree/master/service).
 
-## Disclaimer
-
-This is my personal project and it does not represent my employer. I take no responsibility for issues caused by this code. I do my best to ensure that everything works, but if something goes wrong, my apologies is all you will get.
-
 ## License
 
 This software is released under the [MIT](./LICENSE)
