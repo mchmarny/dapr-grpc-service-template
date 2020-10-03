@@ -21,22 +21,22 @@ test: tidy ## Tests the entire project
 .PHONY: run
 run: tidy ## Runs uncompiled code in Dapr
 	dapr run \
-		 --app-id $(SERVICE_NAME) \
-		 --app-port 50001 \
-		 --app-protocol grpc \
-		 --dapr-http-port 3500 \
-         --components-path ./config \
-         go run main.go
+		--app-id $(SERVICE_NAME) \
+		--app-port 50001 \
+		--app-protocol grpc \
+		--dapr-http-port 3500 \
+		--components-path ./config \
+		go run main.go
 
 .PHONY: build
 build: tidy ## Builds local release binary
 	CGO_ENABLED=0 go build -a -tags netgo -mod vendor -o bin/$(SERVICE_NAME) .
 
-.PHONY: event
-event: ## Publishes sample JSON message to Dapr pubsub API 
-	curl -d '{ "from": "John", "to": "Lary", "message": "hi" }' \
+.PHONY: invoke
+invoke: ## Invoke service with sample JSON content using Dapr API
+	curl -d '{ "message": "hi" }' \
      -H "Content-type: application/json" \
-     "http://localhost:3500/v1.0/publish/events/messages"
+     "http://localhost:3500/v1.0/invoke/$(SERVICE_NAME)/method/echo"
 
 .PHONY: image
 image: tidy ## Builds and publish docker image 
