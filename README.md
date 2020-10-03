@@ -1,8 +1,6 @@
-# dapr-grpc-service-template
+# dapr-grpc-service-template [![Go Report Card](https://goreportcard.com/badge/github.com/dapr-templates/dapr-grpc-service-template)](https://goreportcard.com/report/github.com/dapr-templates/dapr-grpc-service-template)
 
-[![Test](https://github.com/dapr-templates/dapr-grpc-service-template/workflows/Test/badge.svg)](https://github.com/dapr-templates/dapr-grpc-service-template/actions?query=workflow%3ATest) ![Release](https://github.com/dapr-templates/dapr-grpc-service-template/workflows/Release/badge.svg?query=workflow%3ARelease) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/dapr-templates/dapr-grpc-service-template) [![Go Report Card](https://goreportcard.com/badge/github.com/dapr-templates/dapr-grpc-service-template)](https://goreportcard.com/report/github.com/dapr-templates/dapr-grpc-service-template)
-
-## template usage 
+### template usage 
 
 * Click "Use this template" above and follow the wizard to select owner and name your new repo
 * Clone and navigate to your new repo (`git clone git@github.com:<USERNAME>/<REPO-NAME>.git && cd <REPO-NAME>`)
@@ -31,6 +29,6 @@ help                           Display available commands
 
 This project also includes GitHub actions in [.github/workflows](.github/workflows) that test on each `push` and build images and mark release on each `tag`. Other Dapr GitHub templates to accelerate Dapr development available [here](https://github.com/dapr/go-sdk/tree/master/service).
 
-## License
+### License
 
 This software is released under the [MIT](./LICENSE)
