@@ -23,7 +23,9 @@ func main() {
 	}
 
 	// add handler to the service
-	s.AddServiceInvocationHandler("echo", echoHandler)
+	if err := s.AddServiceInvocationHandler("echo", echoHandler); err != nil {
+		log.Fatalf("error adding handler: %v", err)
+	}
 
 	// start the server to handle incoming events
 	if err := s.Start(); err != nil {

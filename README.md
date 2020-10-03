@@ -1,6 +1,6 @@
 # dapr-grpc-service-template
 
-[![Test](https://github.com/mchmarny/dapr-grpc-service-template/workflows/Test/badge.svg)](https://github.com/mchmarny/dapr-grpc-service-template/actions?query=workflow%3ATest) ![Release](https://github.com/mchmarny/dapr-grpc-service-template/workflows/Release/badge.svg?query=workflow%3ARelease) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/mchmarny/dapr-grpc-service-template) [![Go Report Card](https://goreportcard.com/badge/github.com/mchmarny/dapr-grpc-service-template)](https://goreportcard.com/report/github.com/mchmarny/dapr-grpc-service-template)
+[![Test](https://github.com/dapr-templates/dapr-grpc-service-template/workflows/Test/badge.svg)](https://github.com/dapr-templates/dapr-grpc-service-template/actions?query=workflow%3ATest) ![Release](https://github.com/dapr-templates/dapr-grpc-service-template/workflows/Release/badge.svg?query=workflow%3ARelease) ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/dapr-templates/dapr-grpc-service-template) [![Go Report Card](https://goreportcard.com/badge/github.com/dapr-templates/dapr-grpc-service-template)](https://goreportcard.com/report/github.com/dapr-templates/dapr-grpc-service-template)
 
 ## template usage 
 
@@ -18,14 +18,14 @@ Common operations to help you bootstrap a Dapr gRPC services development in `go`
 $ make help
 tidy                           Updates the go modules and vendors all dependencies
 test                           Tests the entire project
+run                            Runs uncompiled code in Dapr
 build                          Builds local release binary
-run                            Builds binary and runs it in Dapr
-call                           Invokes service through Dapr API
+event                          Publishes sample JSON message to Dapr pubsub API
 image                          Builds and publish docker image
 lint                           Lints the entire project
 tag                            Creates release tag
 clean                          Cleans up generated files
-reset                          Resets go modules
+init                           Resets go modules
 help                           Display available commands
 ```
 
